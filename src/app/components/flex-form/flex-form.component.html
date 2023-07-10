@@ -1,39 +1,49 @@
 <div class="container">
   <h2 class="headContain">Register</h2>
-  <form class="formContainer" action="">
+  <form #f="ngForm" class="formContainer" action="">
     <div class="inputContainer">
       <input
-        required=""
+        required
+        minlength="4"
+        maxlength="20"
+        appForbiddenName="admin"
         type="text"
-        name="text"
+        name="username"
         autocomplete="off"
         class="input"
+        [(ngModel)]="formData.username"
       />
       <label class="userLabel">UserName</label>
     </div>
     <div class="inputContainer">
       <input
-        required=""
+        required
         type="email"
         name="email"
         autocomplete="off"
         class="input"
+        [(ngModel)]="formData.email"
       />
       <label class="userLabel">Email</label>
     </div>
     <div class="inputContainer">
       <input
-        required=""
+        required
+        minlength="8"
+        maxlength="32"
         type="password"
         name="password"
         autocomplete="off"
         class="input"
+        [(ngModel)]="formData.password"
       />
       <label class="userLabel">Password</label>
     </div>
     <div class="inputContainer">
       <input
-        required=""
+        required
+        minlength="8"
+        maxlength="32"
         type="password"
         name="confirmPassword"
         autocomplete="off"
@@ -41,6 +51,12 @@
       />
       <label class="userLabel">Confirm Password</label>
     </div>
-    <input class="submitBtn" type="submit" name="submit" value="submit" id="" />
+    <input
+      class="submitBtn"
+      type="submit"
+      name="submit"
+      value="submit"
+      (click)="onSubmit()"
+    />
   </form>
 </div>
